@@ -10,13 +10,16 @@ namespace WorkBrowser
         
         public Hrome(string userpath)
         {
-            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            
             _UserPath = userpath;
-            _BrowserPath = Path.Combine(_ApplicationDirectory, "Google\\Chrome\\User Data\\Default");
-            _NameProcess = "chrome";
+            start();
         }
 
         public Hrome()
+        {
+            start();
+        }
+        private void start()
         {
             _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             _BrowserPath = Path.Combine(_ApplicationDirectory, "Google\\Chrome\\User Data\\Default");

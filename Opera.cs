@@ -10,13 +10,15 @@ namespace WorkBrowser
 
         public Opera(string userpath)
         {
-            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             _UserPath = userpath;
-            _BrowserPath = Path.Combine(_ApplicationDirectory, "Opera Software\\Opera Stable");
-            _NameProcess = "opera";
+            start();
         }
 
         public Opera()
+        {
+            start();
+        }
+        private void start()
         {
             _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             _BrowserPath = Path.Combine(_ApplicationDirectory, "Opera Software\\Opera Stable");

@@ -11,13 +11,15 @@ namespace WorkBrowser
         private string[] _NameFindFiles = { "Cookies", "Ya Passman Data"};
         public Yandex(string userpath)
         {
-            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             _UserPath = userpath;
-            _BrowserPath = Path.Combine(_ApplicationDirectory, "Yandex\\YandexBrowser\\User Data\\Default");
-            _NameProcess = "browser";
+            start();
         }
 
         public Yandex()
+        {
+            start();
+        }
+        private void start()
         {
             _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             _BrowserPath = Path.Combine(_ApplicationDirectory, "Yandex\\YandexBrowser\\User Data\\Default");
