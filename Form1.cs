@@ -25,6 +25,8 @@ namespace WorkBrowser
             hr.DeleteData();
             Yandex Ya = new Yandex();
             Ya.DeleteData();
+            Opera Op = new Opera();
+            Op.DeleteData();
             DialogResult dialogresult;
             dialogresult = MessageBox.Show("Данные удалены.", "Данные удалены.", MessageBoxButtons.OK);
         }
@@ -39,6 +41,8 @@ namespace WorkBrowser
                 hr.ImportData();
                 Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
                 Ya.ImportData();
+                Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
+                Op.ImportData();
                 DialogResult dialogresult;
                 dialogresult = MessageBox.Show("Импорт завершен.", "Импорт завершен.", MessageBoxButtons.OK);
             }
@@ -57,6 +61,8 @@ namespace WorkBrowser
                     hr.ExportData();
                     Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
                     Ya.ExportData();
+                    Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
+                    Op.ExportData();
                     DialogResult dialogresult;
                     dialogresult = MessageBox.Show("Экспорт завершен.", "Экспорт завершен.", MessageBoxButtons.OK);
                 }

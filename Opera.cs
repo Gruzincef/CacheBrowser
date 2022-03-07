@@ -6,20 +6,20 @@ namespace WorkBrowser
 {
     class Opera : WorkBrowser
     {
-        private string[] _NameFindFiles = { "Login Data", "Login Data For Account", "History", "sessionCheckpoints.json", "cookies.sqlite", "Cookies", "Network Persistent State", "Reporting and NEL", "TransportSecurity", "Trust Tokens" };
+        private string[] _NameFindFiles = { "Login Data", "bookmarks", "Cookies", "Reporting and NEL" };
 
         public Opera(string userpath)
         {
-            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             _UserPath = userpath;
-            _BrowserPath = Path.Combine(_ApplicationDirectory, "Google\\Chrome\\User Data\\Default");
+            _BrowserPath = Path.Combine(_ApplicationDirectory, "Opera Software\\Opera Stable");
             _NameProcess = "opera";
         }
 
         public Opera()
         {
-            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            _BrowserPath = Path.Combine(_ApplicationDirectory, "Google\\Chrome\\User Data\\Default");
+            _ApplicationDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            _BrowserPath = Path.Combine(_ApplicationDirectory, "Opera Software\\Opera Stable");
             _NameProcess = "opera";
         }
         public void DeleteData()
@@ -37,7 +37,7 @@ namespace WorkBrowser
         public void ExportData()
         {
             KillProicess();
-            List<string> listdir = FindData(Path.Combine(_UserPath, "Google"));
+            List<string> listdir = FindData(Path.Combine(_UserPath, "Opera Software"));
             CopyData(CreateDataInExport(listdir));
         }
     }
