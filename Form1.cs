@@ -19,9 +19,8 @@ namespace WorkBrowser
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WorkRegistry wr = new WorkRegistry("CurrentUser", @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\");
-            wr.lis();
-            /*
+           
+           
             Firefox fr = new Firefox();
             fr.DeleteData();
             Hrome hr = new Hrome();
@@ -34,7 +33,7 @@ namespace WorkBrowser
             Ch.DeleteData();
             DialogResult dialogresult;
             dialogresult = MessageBox.Show("Данные удалены.", "Данные удалены.", MessageBoxButtons.OK);
-            */
+          
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -54,7 +53,7 @@ namespace WorkBrowser
                 Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
                 Ch.ImportData();
                 DialogResult dialogresult;
-                dialogresult = MessageBox.Show("Импорт завершен.", "Импорт завершен.", MessageBoxButtons.OK);
+                dialogresult = MessageBox.Show("Настройки сохранены.", "Настройки сохранены.", MessageBoxButtons.OK);
             }
 
 
@@ -77,7 +76,7 @@ namespace WorkBrowser
                     Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
                     Ch.ExportData();
                     DialogResult dialogresult;
-                    dialogresult = MessageBox.Show("Экспорт завершен.", "Экспорт завершен.", MessageBoxButtons.OK);
+                    dialogresult = MessageBox.Show("Настройки загружены.", "Настройки загружены.", MessageBoxButtons.OK);
                 }
             }
         }

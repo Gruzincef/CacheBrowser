@@ -8,16 +8,27 @@ using System.Threading.Tasks;
 
 namespace WorkBrowser
 {
+    WorkRegistry wr = new WorkRegistry("CurrentUser", @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\");
+    wr.ReadChapter();
+    class reg
+    {
+        public string _Type;
+        public string _Value;
+        public string _Name;
+    }
     class WorkRegistry
     {
+        
         private RegistryKey _MachineKey;
         private string _Directory;
+        private List<string> _Chapters = new List<string>();
+        private Dictionary<string, List<reg>> _Value = new Dictionary<string, List<reg>>();
         public WorkRegistry(string registry,string directory)
         {
             if      (registry == "ClassesRoot")     _MachineKey = Registry.ClassesRoot;
             else if (registry == "CurrentConfig")   _MachineKey = Registry.CurrentConfig;
             else if (registry == "CurrentUser")     _MachineKey = Registry.CurrentUser;
-            else if (registry == "LocalMachine")         _MachineKey = Registry.LocalMachine;
+            else if (registry == "LocalMachine")    _MachineKey = Registry.LocalMachine;
             else if (registry == "Users")           _MachineKey = Registry.Users;
             else if (registry == "PerformanceData") _MachineKey = Registry.PerformanceData;
             _Directory = directory;
@@ -34,16 +45,67 @@ namespace WorkBrowser
             }
             return registrykey;
        }
-        public void lis()
+        public void ReadChapter()
         {
-            List<string> ListSubDirectory=ReadDirectory(_Directory);
-            List<string> keys = new List<string>();
-            foreach (string subName in ListSubDirectory)  {
-                List<string> k = _MachineKey.OpenSubKey(subName, true).GetValueNames().ToList();
-                foreach (string f in k)
-                    keys.Add(Path.Combine(subName,f ));
+            _Chapters = ReadDirectory(_Directory);
+            _Value=ListKey();
+            Save("name");
+        }
+        private string ConvertToHex(Object txt)
+        {
+            // byte[] ba = Encoding.Default.GetBytes(txt);
+            byte[] ba = (byte[])txt;
+            StringBuilder st = new StringBuilder();
+            foreach(byte a in ba)
+            {
+                st.Append(a.ToString()+" ");
+
             }
-            int a = 0;
+            return st.ToString(); ;
+        }
+        public Dictionary<string, List<reg>> ListKey()
+        {
+            reg rg ;
+            List<string> keys = new List<string>();
+            Dictionary<string, List<reg>> vl = new Dictionary<string, List<reg>>();
+            foreach (string subName in _Chapters)  {
+                RegistryKey key = _MachineKey.OpenSubKey(subName, true);
+                List<string> k= key.GetValueNames().ToList();
+                List<reg> sd = new List<reg>();
+                foreach (string f in k)
+                {
+                    rg = new reg();
+                    rg._Name = f;
+                    rg._Type = key.GetValueKind(f).ToString().ToLower();
+                    rg._Value = key.GetValue(f).ToString();
+                    if (rg._Type == "expandstring")
+                    {
+                        rg._Type = "hex(2)";
+                        rg._Value = ConvertToHex(key.GetValue(f));
+                    }
+                    
+                    sd.Add(rg);
+                }
+                vl.Add(subName, sd);
+            }
+            return vl;
+        }
+
+        public void Save(string name)
+        {
+            StringBuilder sv = new StringBuilder();
+            foreach (KeyValuePair<string, List<reg>> vl in _Value)
+            {
+                sv.Append("["+vl.Key +"]\r\n");
+                foreach(reg v in vl.Value)
+                {
+                    if (v._Type == "string")
+                        sv.Append("\"" + v._Name + "\"=\"" + v._Value + "\"\r\n");
+                    else
+                        sv.Append("\"" + v._Name + "\"="+ v._Type+":" + v._Value + "\r\n");
+                }
+            }
+            File.WriteAllText(name, sv.ToString());
         }
 
     }

