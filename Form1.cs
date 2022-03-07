@@ -19,6 +19,9 @@ namespace WorkBrowser
 
         private void button1_Click(object sender, EventArgs e)
         {
+            WorkRegistry wr = new WorkRegistry("LocalMachine", @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\");
+            wr.lis();
+            /*
             Firefox fr = new Firefox();
             fr.DeleteData();
             Hrome hr = new Hrome();
@@ -31,12 +34,15 @@ namespace WorkBrowser
             Ch.DeleteData();
             DialogResult dialogresult;
             dialogresult = MessageBox.Show("Данные удалены.", "Данные удалены.", MessageBoxButtons.OK);
+            */
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
+                WindowsProxy Pr = new WindowsProxy(folderBrowserDialog1.SelectedPath);
+                Pr.GetProxi();
                 Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
                 fr.ImportData();
                 Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
@@ -59,6 +65,7 @@ namespace WorkBrowser
             {
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
+
                     Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
                     fr.ExportData();
                     Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);

