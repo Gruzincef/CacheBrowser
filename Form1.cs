@@ -19,8 +19,7 @@ namespace WorkBrowser
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-           
+            
             Firefox fr = new Firefox();
             fr.DeleteData();
             Hrome hr = new Hrome();
@@ -40,8 +39,6 @@ namespace WorkBrowser
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                WindowsProxy Pr = new WindowsProxy(folderBrowserDialog1.SelectedPath);
-                Pr.GetProxi();
                 Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
                 fr.ImportData();
                 Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
