@@ -26,17 +26,24 @@ namespace WorkBrowser
         public List<string> ReadDirectory(string directory)
         {
             List<string> registrykey = new List<string>();
-            List<string> subNames = _MachineKey.OpenSubKey(directory, true).GetValueNames().ToList();
+            List<string> subNames = _MachineKey.OpenSubKey(directory, true).GetSubKeyNames().ToList();
             foreach (string subName in subNames)
             {
                 registrykey.Add(Path.Combine(directory, subName));
-                registrykey.AddRange(ReadDirectory(directory + "\\"+subName));
+                registrykey.AddRange(ReadDirectory(Path.Combine(directory ,subName)));
             }
             return registrykey;
        }
         public void lis()
         {
-           ReadDirectory(_Directory);
+            List<string> ListSubDirectory=ReadDirectory(_Directory);
+            List<string> keys = new List<string>();
+            foreach (string subName in ListSubDirectory)  {
+                List<string> k = _MachineKey.OpenSubKey(subName, true).GetValueNames().ToList();
+                foreach (string f in k)
+                    keys.Add(Path.Combine(subName,f ));
+            }
+            int a = 0;
         }
 
     }

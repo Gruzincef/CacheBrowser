@@ -19,7 +19,7 @@ namespace WorkBrowser
 
         private void button1_Click(object sender, EventArgs e)
         {
-            WorkRegistry wr = new WorkRegistry("LocalMachine", @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\");
+            WorkRegistry wr = new WorkRegistry("CurrentUser", @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\");
             wr.lis();
             /*
             Firefox fr = new Firefox();
