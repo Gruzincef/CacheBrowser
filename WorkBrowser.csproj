@@ -75,6 +75,7 @@
     <Compile Include="WorkBrowser.cs" />
     <Compile Include="WorkPath.cs" />
     <Compile Include="Yandex.cs" />
+    <Compile Include="Сhromium.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

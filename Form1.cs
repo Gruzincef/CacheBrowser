@@ -27,6 +27,8 @@ namespace WorkBrowser
             Ya.DeleteData();
             Opera Op = new Opera();
             Op.DeleteData();
+            Сhromium Ch = new Сhromium();
+            Ch.DeleteData();
             DialogResult dialogresult;
             dialogresult = MessageBox.Show("Данные удалены.", "Данные удалены.", MessageBoxButtons.OK);
         }
@@ -43,6 +45,8 @@ namespace WorkBrowser
                 Ya.ImportData();
                 Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
                 Op.ImportData();
+                Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
+                Ch.ImportData();
                 DialogResult dialogresult;
                 dialogresult = MessageBox.Show("Импорт завершен.", "Импорт завершен.", MessageBoxButtons.OK);
             }
@@ -63,6 +67,8 @@ namespace WorkBrowser
                     Ya.ExportData();
                     Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
                     Op.ExportData();
+                    Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
+                    Ch.ExportData();
                     DialogResult dialogresult;
                     dialogresult = MessageBox.Show("Экспорт завершен.", "Экспорт завершен.", MessageBoxButtons.OK);
                 }
