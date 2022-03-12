@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Threading.Tasks;
 
-namespace WorkBrowser
+namespace CacheBrowser
 {
     public abstract class WorkBrowser
     {

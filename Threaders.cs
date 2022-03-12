@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace WorkBrowser
+namespace CacheBrowser
 {
     /// <summary>
     /// Description of Threaders.

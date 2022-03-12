@@ -1,5 +1,5 @@
 ﻿
-namespace WorkBrowser
+namespace CacheBrowser
 {
     partial class Form1
     {
@@ -76,7 +76,7 @@ namespace WorkBrowser
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "WorkBrowser";
+            this.Text = "CacheBrowser";
             this.ResumeLayout(false);
 
         }

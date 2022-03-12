@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkBrowser", "WorkBrowser.csproj", "{77E640BE-7971-4952-9F23-92FBE57CE591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheBrowsers", "CacheBrowsers.csproj", "{77E640BE-7971-4952-9F23-92FBE57CE591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

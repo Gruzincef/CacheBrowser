@@ -1,8 +1,5 @@
 ﻿
-using System;
-using System.Collections.Generic;
-
-namespace WorkBrowser
+namespace CacheBrowser
 {
  
     public class MenegerEvent

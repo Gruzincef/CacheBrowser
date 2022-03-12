@@ -1,7 +1,7 @@
 ﻿using System.IO;
 
 
-namespace WorkBrowser
+namespace CacheBrowser
 {
     class WorkPath
     {

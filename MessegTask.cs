@@ -1,7 +1,4 @@
-﻿
-using System;
-
-namespace WorkBrowser
+﻿namespace CacheBrowser
 {
 
     public class MessegTask
