@@ -94,23 +94,26 @@ namespace WorkBrowser
         protected List<string> FindData(string dir, string[] listnamefile)
         {
             List<string> endlistfiles = new List<string>();
-            foreach (string name in listnamefile)
-            {
-                string[] files = Directory.GetFiles(dir, name);
-                foreach (string file in files)
-                {
-                    endlistfiles.Add(file);
-                }
-            }
-            string[] pathdatas = Directory.GetDirectories(dir);
-            foreach (string pathdata in pathdatas)
+            if (Directory.Exists(dir))
             {
                 foreach (string name in listnamefile)
                 {
-                    string[] files = Directory.GetFiles(pathdata, name);
+                    string[] files = Directory.GetFiles(dir, name);
                     foreach (string file in files)
                     {
                         endlistfiles.Add(file);
+                    }
+                }
+                string[] pathdatas = Directory.GetDirectories(dir);
+                foreach (string pathdata in pathdatas)
+                {
+                    foreach (string name in listnamefile)
+                    {
+                        string[] files = Directory.GetFiles(pathdata, name);
+                        foreach (string file in files)
+                        {
+                            endlistfiles.Add(file);
+                        }
                     }
                 }
             }
