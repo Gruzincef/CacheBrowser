@@ -40,15 +40,15 @@ namespace WorkBrowser
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
-                fr.SetConfig();
+                fr.GetConfig();
                 Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
-                hr.SetConfig();
+                hr.GetConfig();
                 Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
-                Ya.SetConfig();
+                Ya.GetConfig();
                 Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
-                Op.SetConfig();
+                Op.GetConfig();
                 Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
-                Ch.SetConfig();
+                Ch.GetConfig();
                 DialogResult dialogresult;
                 dialogresult = MessageBox.Show("Настройки сохранены.", "Настройки сохранены.", MessageBoxButtons.OK);
             }
@@ -63,15 +63,15 @@ namespace WorkBrowser
                 {
 
                     Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
-                    fr.GetConfig();
+                    fr.SetConfig();
                     Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
-                    hr.GetConfig();
+                    hr.SetConfig();
                     Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
-                    Ya.GetConfig();
+                    Ya.SetConfig();
                     Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
-                    Op.GetConfig();
+                    Op.SetConfig();
                     Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
-                    Ch.GetConfig();
+                    Ch.SetConfig();
                     DialogResult dialogresult;
                     dialogresult = MessageBox.Show("Настройки загружены.", "Настройки загружены.", MessageBoxButtons.OK);
                 }

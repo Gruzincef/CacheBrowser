@@ -27,14 +27,15 @@ namespace WorkBrowser
             DeleteData(FindData(Path.Combine(_BrowserPath, "Profiles"), _NameFindFiles));
             DeleteData(FindData(_BrowserPath, _NameFindFiles));
         }
-        public  void SetConfig()
+        public  void GetConfig()
         {
+             List<string> oldprogiles=FindData(Path.Combine(_BrowserPath, "Profiles"));
 
             CopyData(CreateDataInImport(FindData(Path.Combine(_BrowserPath, "Profiles"), _NameFindFiles)));
             CopyData(CreateDataInImport(FindData(_BrowserPath, _NameFindFiles)));
         }
 
-        public void GetConfig()
+        public void SetConfig()
         {
             KillProicess();
             List<string> listdir = FindData(Path.Combine(_UserPath, "Mozilla"));

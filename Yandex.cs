@@ -29,12 +29,12 @@ namespace WorkBrowser
             KillProicess();
             DeleteData(FindData(_BrowserPath, _NameFindFiles));
         }
-        public void SetConfig()
+        public void GetConfig()
         {
             CopyData(CreateDataInImport(FindData(_BrowserPath, _NameFindFiles)));
         }
 
-        public void GetConfig()
+        public void SetConfig()
         {
             KillProicess();
             List<string> listdir = FindData(Path.Combine(_UserPath, "Yandex"));
