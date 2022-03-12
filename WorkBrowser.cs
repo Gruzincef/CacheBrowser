@@ -33,16 +33,19 @@ namespace WorkBrowser
         protected List<string> AllSubDirectory(string directory)
         {
             List<string> listdir = new List<string>();
-            string[] dirs = Directory.GetDirectories(directory);
-            foreach (string dir in dirs)
+            if (Directory.Exists(directory))
             {
-                var di = new DirectoryInfo(dir);
-                if (di.Exists)
+                string[] dirs = Directory.GetDirectories(directory);
+                foreach (string dir in dirs)
                 {
-                    if ((!di.Attributes.HasFlag(FileAttributes.System)) && (!di.Attributes.HasFlag(FileAttributes.Temporary)) && (!di.Attributes.HasFlag(FileAttributes.Temporary)))
+                    var di = new DirectoryInfo(dir);
+                    if (di.Exists)
                     {
-                        listdir.Add(dir);
-                        listdir.AddRange(AllSubDirectory(dir));
+                        if ((!di.Attributes.HasFlag(FileAttributes.System)) && (!di.Attributes.HasFlag(FileAttributes.Temporary)) && (!di.Attributes.HasFlag(FileAttributes.Temporary)))
+                        {
+                            listdir.Add(dir);
+                            listdir.AddRange(AllSubDirectory(dir));
+                        }
                     }
                 }
             }
