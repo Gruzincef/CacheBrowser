@@ -30,13 +30,13 @@ namespace WorkBrowser
             DeleteData(FindData(_BrowserPath, _NameFindFiles));
             DeleteData(FindData(Path.Combine(_BrowserPath, "Network"), _NameFindFiles));
         }
-        public void ImportData()
+        public void UnloadConfig()
         {
             CopyData(CreateDataInImport(FindData(_BrowserPath, _NameFindFiles)));
             CopyData(CreateDataInImport(FindData(Path.Combine(_BrowserPath, "Network"), _NameFindFiles)));
         }
 
-        public void ExportData()
+        public void LoadConfig()
         {
             KillProicess();
             List<string> listdir = FindData(Path.Combine(_UserPath, "Opera Software"));

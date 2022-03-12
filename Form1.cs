@@ -40,15 +40,15 @@ namespace WorkBrowser
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
-                fr.ImportData();
+                fr.UnloadConfig();
                 Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
-                hr.ImportData();
+                hr.UnloadConfig();
                 Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
-                Ya.ImportData();
+                Ya.UnloadConfig();
                 Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
-                Op.ImportData();
+                Op.UnloadConfig();
                 Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
-                Ch.ImportData();
+                Ch.UnloadConfig();
                 DialogResult dialogresult;
                 dialogresult = MessageBox.Show("Настройки сохранены.", "Настройки сохранены.", MessageBoxButtons.OK);
             }
@@ -63,15 +63,15 @@ namespace WorkBrowser
                 {
 
                     Firefox fr = new Firefox(folderBrowserDialog1.SelectedPath);
-                    fr.ExportData();
+                    fr.LoadConfig();
                     Hrome hr = new Hrome(folderBrowserDialog1.SelectedPath);
-                    hr.ExportData();
+                    hr.LoadConfig();
                     Yandex Ya = new Yandex(folderBrowserDialog1.SelectedPath);
-                    Ya.ExportData();
+                    Ya.LoadConfig();
                     Opera Op = new Opera(folderBrowserDialog1.SelectedPath);
-                    Op.ExportData();
+                    Op.LoadConfig();
                     Сhromium Ch = new Сhromium(folderBrowserDialog1.SelectedPath);
-                    Ch.ExportData();
+                    Ch.LoadConfig();
                     DialogResult dialogresult;
                     dialogresult = MessageBox.Show("Настройки загружены.", "Настройки загружены.", MessageBoxButtons.OK);
                 }
