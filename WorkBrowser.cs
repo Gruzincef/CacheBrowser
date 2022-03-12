@@ -24,7 +24,8 @@ namespace WorkBrowser
         {
           foreach (KeyValuePair<string, string> entry in pathFiles)
             {
-                if (File.Exists(entry.Value)) File.Delete(entry.Value);
+                if (File.Exists(entry.Value))
+                    File.Delete(entry.Value);
                 File.Copy(entry.Key, entry.Value);
             }
         }
