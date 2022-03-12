@@ -78,6 +78,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hrome.cs" />
+    <Compile Include="MenegerEvent.cs" />
+    <Compile Include="MessegTask.cs" />
     <Compile Include="Opera.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
