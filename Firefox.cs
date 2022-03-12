@@ -29,7 +29,6 @@ namespace WorkBrowser
         }
         public  void GetConfig()
         {
-             List<string> oldprogiles=FindData(Path.Combine(_BrowserPath, "Profiles"));
 
             CopyData(CreateDataInImport(FindData(Path.Combine(_BrowserPath, "Profiles"), _NameFindFiles)));
             CopyData(CreateDataInImport(FindData(_BrowserPath, _NameFindFiles)));
@@ -38,8 +37,25 @@ namespace WorkBrowser
         public void SetConfig()
         {
             KillProicess();
+            List<string> oldprofiles=FindData(Path.Combine(_BrowserPath, "Profiles"), _NameFindFiles);
+            string pathprogfiles = Path.GetDirectoryName(oldprofiles[1]);
+
             List<string> listdir = FindData(Path.Combine(_UserPath, "Mozilla"));
-            CopyData(CreateDataInExport(listdir));
+            Dictionary<string,string> listfile= CreateDataInExport(listdir);
+            
+            string newprofil="";
+            foreach (string value in listfile.Values){
+                newprofil = Path.GetDirectoryName(value);
+                if (newprofil.IndexOf(".default")>3)   break;
+            }
+            if ((Directory.Exists(newprofil)) && (Directory.Exists(pathprogfiles)))
+            {
+                Directory.Delete(newprofil);
+                if (pathprogfiles!= newprofil)
+                Directory.Move(pathprogfiles, newprofil);
+                CopyData(listfile);
+            }
+
         }
 
     }
